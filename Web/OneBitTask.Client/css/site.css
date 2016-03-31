@@ -1,0 +1,11 @@
+﻿.b-fixed {
+    width: 80px;
+}
+
+a.b-fixed {
+    text-decoration: none;
+}
+
+.modal {
+    display: block !important;
+}

@@ -1,0 +1,89 @@
+﻿<div class="container">
+    <div class="well text-center">
+        <h2>All contacts in the database</h2>
+    </div>
+    <div ng-show="vm.showModal" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button ng-click="vm.closeModal()" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Update Contact</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <fieldset>
+                            <div class="form-group">
+                                <label for="firstName" class="col-lg-3 control-label">First Name</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" ng-model="vm.contactToUpdate.FirstName" id="firstName" placeholder="First Name" type="text" value="{{vm.contactToUpdate.FirstName}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="col-lg-3 control-label">Last Name</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" ng-model="vm.contactToUpdate.LastName" id="lastName" placeholder="Last Name" type="text" value="{{vm.contactToUpdate.LastName}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="sex" class="col-lg-3 control-label">Sex</label>
+                                <div class="col-lg-9">
+                                    <select ng-model="vm.contactToUpdate.Sex" class="form-control" id="sex">
+                                        <option ng-selected="vm.contactToUpdate.Sex != 1 && vm.contactToUpdate" value="false">Female</option>
+                                        <option ng-selected="vm.contactToUpdate.Sex == 1" value="true">Male</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="sex" class="col-lg-3 control-label">Status</label>
+                                <div class="col-lg-9">
+                                    <select ng-model="vm.contactToUpdate.Status" class="form-control" id="sex">
+                                        <option value="1">Active</option>
+                                        <option ng-selected="vm.contactToUpdate.Status == 2" value="2">Inactive</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="telephone" class="col-lg-3 control-label">Telephone</label>
+                                <div class="col-lg-9">
+                                    <input ng-model="vm.contactToUpdate.Telephone" class="form-control" id="telephone" placeholder="Telephone" type="text" value="{{vm.contactToUpdate.Telephone}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="avatar" class="col-lg-3 control-label">Photo URL</label>
+                                <div class="col-lg-9">
+                                    <input ng-model="vm.contactToUpdate.PhotoUrl" class="form-control" id="avatar" placeholder="Photo URL" type="text" value="{{vm.contactToUpdate.PhotoUrl}}">
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button ng-click="vm.closeModal()" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button ng-click="vm.updateContact(vm.contactToUpdate)" type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table table-bordered text-center">
+        <tr>
+            <th class="text-center">ID</th>
+            <th class="text-center">First Name</th>
+            <th class="text-center">Last Name</th>
+            <th class="text-center">Sex</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Actions</th>
+        </tr>
+        <tr ng-repeat="contact in vm.contacts">
+            <td><a href="#/contacts/{{contact.Id}}">{{contact.Id}}</a></td>
+            <td>{{contact.FirstName}}</td>
+            <td>{{contact.LastName}}</td>
+            <td>{{contact.Sex ? 'Male':'Female'}}</td>
+            <td>{{contact.Status === 1 ? 'Active' :'Inactive'}}</td>
+            <td>
+                <a ng-click="vm.toggleStatus(contact.Id, contact.Status)" class="btn btn-{{contact.Status === 1 ? 'warning' : 'success'}} btn-xs b-fixed">{{contact.Status === 1 ? 'Deactivate' : 'Activate'}}</a>
+                <a ng-click="vm.update(contact.Id)" class="btn btn-info btn-xs b-fixed">Update</a>
+                <a ng-click="vm.delete(contact.Id)" class="btn btn-danger btn-xs b-fixed">Delete</a>
+            </td>
+        </tr>
+    </table>
+</div>

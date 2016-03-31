@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OneBit Junior ASP.NET MVC Task</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="../css/toastr.min.css" />
+    <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body ng-app="myApp" ng-cloak>
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#/" class="navbar-brand">OneBitTask</a>
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#/contacts">Contacts</a>
+                    </li>
+                    <li>
+                        <a href="#/create">Create contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div ng-view></div>
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/toastr/toastr.min.js"></script>
+    <script src="lib/bootstrap/bootstrap.min.js"></script>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular/angular-route.min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/common/notifier.js"></script>
+    <script src="js/common/data.js"></script>
+
+    <script src="js/contacts/contacts-service.js"></script>
+    <script src="js/home/home-controller.js"></script>
+    <script src="js/contacts//create-contact-controller.js"></script>
+</body>
+</html>
