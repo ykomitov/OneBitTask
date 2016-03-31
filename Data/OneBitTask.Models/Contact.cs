@@ -24,6 +24,7 @@
         [MaxLength(30)]
         public string Telephone { get; set; }
 
+        [Url]
         public string PhotoUrl { get; set; }
 
         [Required]

@@ -21,6 +21,7 @@
         [MaxLength(30)]
         public string Telephone { get; set; }
 
+        [Url(ErrorMessage = "Please enter a valid url")]
         public string PhotoUrl { get; set; }
 
         [Required]
