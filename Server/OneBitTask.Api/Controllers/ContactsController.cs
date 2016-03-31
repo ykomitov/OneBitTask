@@ -98,7 +98,10 @@
                 return this.NotFound();
             }
 
-            this.contacts.DeleteById(id);
+            contactToDelete.Status = 0;
+            contactToDelete.DeletedOn = DateTime.UtcNow;
+            this.contacts.Save();
+
             return this.Ok();
         }
     }
